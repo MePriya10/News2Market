@@ -1,1 +1,168 @@
-# News2Market
+# 📈 News2Market
+### Financial News Impact Analysis Using NLP and Generative AI
+
+News2Market is a full-stack analytics platform that explores exactly how financial news moves stock prices. Instead of trusting a single sentiment score, this platform categorizes headlines by event type, evaluates them against two independent NLP models, validates the market response across multiple time horizons, and generates plain-English market briefings using Large Language Models (LLMs).
+
+## 🎯 Key Objectives
+
+* **Event-Aware Context:** Classify news into specific financial events rather than treating all headlines the same.
+* **Model Validation:** Compare finance-tuned models against general-purpose models to highlight domain-specific language gaps.
+* **Time-Horizon Analytics:** Measure the statistical correlation between sentiment and stock price changes at same-day, next-day, 3-day, and 5-day windows.
+* **AI Summarization:** Translate raw data into human-readable executive summaries.
+
+## ✨ Key Features
+
+* **Financial News Aggregation:** Automatically fetch and map historical news to active trading days.
+* **Zero-Shot Event Tagging:** Categorize headlines into Earnings, Regulatory, Product, Management, or Macroeconomic news.
+* **Dual-Model Sentiment Analysis:** Score tone using both FinBERT and a general-purpose baseline model.
+* **Generative AI Market Briefings:** Synthesize daily event-tagged headlines into concise, analyst-style summaries using LLMs (Groq/OpenAI).
+* **Multi-Window Correlation:** Statistically validate how fast and how hard different news events move stock prices.
+* **Interactive Dashboard:** A live, responsive React interface to visualize price trends, model agreements, and correlation heatmaps.
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|---|---|
+| **Frontend** | React.js, Vite, Tailwind CSS, Lucide Icons |
+| **Backend API** | Python, FastAPI |
+| **NLP & ML** | HuggingFace Transformers (FinBERT, BART), Scikit-learn |
+| **Generative AI** | Groq API / OpenAI API (LLM Summarization) |
+| **Data & Math** | Pandas, NumPy, SciPy, yfinance, NewsAPI |
+| **Database** | PostgreSQL |
+
+## ⚙️ Getting Started
+
+### Prerequisites
+* Node.js and npm
+* Python 3.10+
+* PostgreSQL
+* Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/news2market.git
+cd news2market
+```
+
+### 2. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open the local URL displayed in your terminal by Vite.
+
+### 3. Backend Setup
+
+Open a new terminal from the project root:
+
+```bash
+cd backend
+python -m venv venv
+```
+
+Activate the virtual environment.
+
+**Windows:**
+```bash
+venv\Scripts\activate
+```
+
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+Install dependencies and start the API:
+
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+- Backend API: `http://127.0.0.1:8000`
+- Interactive API documentation: `http://127.0.0.1:8000/docs`
+
+### 4. Machine Learning Setup
+
+Open another terminal from the project root:
+
+```bash
+cd ml
+python -m venv venv
+```
+
+Activate the environment.
+
+**Windows:**
+```bash
+venv\Scripts\activate
+```
+
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+```
+
+Install ML dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+The ML environment will be used for data preprocessing, sentiment analysis, feature engineering, model training, and evaluation.
+
+### 5. Environment Variables
+
+Create `.env` files in the relevant directories using the corresponding `.env.example` files as templates.
+
+**Backend environment variables:**
+
+```env
+DATABASE_URL=postgresql://username:password@localhost:5432/news2market
+NEWS_API_KEY=your_news_api_key
+MARKET_API_KEY=your_market_api_key
+```
+
+**Frontend environment variable:**
+
+```env
+VITE_API_BASE_URL=http://127.0.0.1:8000
+```
+
+**Important:**
+- Replace placeholder values with your actual configuration.
+- Create the PostgreSQL database before connecting the backend.
+- Configure API keys according to the selected news and market data providers.
+- Never commit `.env` files, API keys, passwords, or other secrets to GitHub.
+- Commit `.env.example` files containing placeholders instead.
+
+## 🗺️ Development Roadmap
+
+- [ ] Set up the frontend, backend, and PostgreSQL database.
+- [ ] Build the core interface and dashboard.
+- [ ] Implement REST APIs and database integration.
+- [ ] Integrate financial news and market data sources.
+- [ ] Implement NLP-based sentiment analysis.
+- [ ] Train and evaluate machine learning models.
+- [ ] Build news–market analysis visualizations.
+- [ ] Test and deploy the application.
+
+## 🔮 Future Scope
+
+- Company-specific sentiment tracking.
+- Historical news and stock movement comparisons.
+- Event-driven market analysis.
+- Model performance evaluation and prediction experiments.
+- Advanced financial analytics and reporting.
+
+## ⚠️ Disclaimer
+
+News2Market is intended for educational and analytical purposes. Any market predictions generated by the platform are experimental and should not be considered guaranteed outcomes or financial advice.
+
+---
+
+⭐ If you find this project interesting, consider starring the repository.
